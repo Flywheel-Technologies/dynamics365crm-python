@@ -88,7 +88,7 @@ class Client:
                         method, url, headers=self.header, params=kwargs
                     )
                 elif method == "patch":
-                    "We default to allowing inserts only, but can switch to upsert mode by passing allow_upserts=True"
+                    "We default to allowing update only, but can switch to upsert mode by passing allow_upserts=True"
                     headers = {
                         **self.header,
                         "If-Match": "*",
