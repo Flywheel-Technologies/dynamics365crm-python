@@ -88,16 +88,20 @@ class Client:
                         method, url, headers=self.header, params=kwargs
                     )
                 elif method == "patch":
+                    "We default to allowing update only, but can switch to upsert mode by passing allow_upserts=True"
+                    headers = {
+                        **self.header,
+                        "If-Match": "*",
+                        "Content-Type": kwargs.get(
+                            "content_type", "application/json; charset=utf-8"
+                        ),
+                    }
+                    if kwargs.get("allow_upserts"):
+                        del headers["If-Match"]
                     response = requests.request(
                         method,
                         url,
-                        headers={
-                            **self.header,
-                            "If-Match": "*",
-                            "Content-Type": kwargs.get(
-                                "content_type", "application/json; charset=utf-8"
-                            ),
-                        },
+                        headers=headers,
                         data=data,
                         json=json,
                     )
