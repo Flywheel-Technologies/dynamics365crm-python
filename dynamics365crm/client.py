@@ -148,64 +148,64 @@ class Client:
             return True
         elif status_code == 400:
             raise BadRequestError(
-                f"The URL {response_url} retrieved an {status_code} error. Please check your request body and try again",
+                f"The URL {response_url} retrieved an {status_code} error with message {raw_message}. Please check your request body and try again",
                 raw_message,
                 response_url,
             )
         elif status_code == 401:
             raise UnauthorizedError(
-                f"The URL {response_url} retrieved and {status_code} error. Please check your credentials, make sure you have permission to perform this action and try again.",
+                f"The URL {response_url} retrieved an {status_code} error with message {raw_message}. Please check your credentials, make sure you have permission to perform this action and try again.",
                 raw_message,
                 response_url,
             )
         elif status_code == 403:
             raise ForbiddenError(
-                f"The URL {response_url} retrieved and {status_code} error. Please check your credentials, make sure you have permission to perform this action and try again.",
+                f"The URL {response_url} retrieved an {status_code} error with message {raw_message}. Please check your credentials, make sure you have permission to perform this action and try again.",
                 raw_message,
                 response_url,
             )
         elif status_code == 404:
             raise NotFoundError(
-                f"The URL {response_url} retrieved an {status_code} error. Please check the URL and try again.",
+                f"The URL {response_url} retrieved an {status_code} error with message {raw_message}. Please check the URL and try again.",
                 raw_message,
                 response_url,
             )
         elif status_code == 412:
             raise PreconditionFailedError(
-                f"The URL {response_url} retrieved an {status_code} error. Please check the URL and try again.",
+                f"The URL {response_url} retrieved an {status_code} error with message {raw_message}. Please check the URL and try again.",
                 raw_message,
                 response_url,
             )
         elif status_code == 413:
             raise PayloadTooLargeError(
-                f"The URL {response_url} retrieved an {status_code} error. Please check the URL and try again.",
+                f"The URL {response_url} retrieved an {status_code} error with message {raw_message}. Please check the URL and try again.",
                 raw_message,
                 response_url,
             )
 
         elif status_code == 429:
             raise TooManyRequestsError(
-                f"The URL {response_url} retrieved an {status_code} error. Please check the URL and try again.",
+                f"The URL {response_url} retrieved an {status_code} error with message {raw_message}. Please check the URL and try again.",
                 raw_message,
                 response_url,
             )
         elif status_code == 500:
             raise InternalServerError(
-                f"The URL {response_url} retrieved an {status_code} error. Please check the URL and try again.",
+                f"The URL {response_url} retrieved an {status_code} error with message {raw_message}. Please check the URL and try again.",
                 raw_message,
                 response_url,
             )
 
         elif status_code == 501:
             raise NotImplementedError(
-                f"The URL {response_url} retrieved an {status_code} error. Please check the URL and try again.",
+                f"The URL {response_url} retrieved an {status_code} error with message {raw_message}. Please check the URL and try again.",
                 raw_message,
                 response_url,
             )
 
         elif status_code == 503:
             raise ServiceUnavailableError(
-                f"The URL {response_url} retrieved an {status_code} error. Please check the URL and try again.",
+                f"The URL {response_url} retrieved an {status_code} error with message {raw_message}. Please check the URL and try again.",
                 raw_message,
                 response_url,
             )
